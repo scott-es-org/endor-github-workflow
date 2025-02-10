@@ -129,11 +129,15 @@ jobs:
               fi
           done
 
-          COUNTER=0
+          COUNTER=1
+          NUM_ELEMENTS=${#GIT_URLS[@]}
           OUTPUT="{ \"git-url\": ["
           for URL in ${GIT_URLS[@]}
           do
-              OUTPUT+="  \"$URL\","
+              if [[ $COUNTER -lt $NUM_ELEMENTS ]]; then
+                OUTPUT+="  \"$URL\","
+              else
+                OUTPUT+="  \"$URL\"
               COUNTER=$((COUNTER+1))
               if [[ $COUNTER -gt $MAX_REPOS ]]; then
                   >&2 echo "::warning Stopping because we met the configured maximum of $MAX_REPOS repos"
