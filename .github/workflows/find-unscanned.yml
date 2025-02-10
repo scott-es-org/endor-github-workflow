@@ -67,8 +67,9 @@ jobs:
           [[ "$ENDOR_NAMESPACE" =~ ^[a-z0-9_-]+([.][a-z0-9_-]+)*$ ]]|| exit 1
           shopt -u nocasematch
           [[ "$ENDOR_API" =~ ^https://[^/]+\.endorlabs.com$ ]] || exit 2
-          [[ "$MAX_REPOS" -gt 256 ]] || exit 3
-          [[ "$MAX_REPOS" -lt 1 ]] || exit 4
+          [[ "$MAX_REPOS" -gt 256 ]] && exit 3
+          [[ "$MAX_REPOS" -lt 1 ]] && exit 4
+          echo "Passed safety check"
         
       - id: endorlabs-setup
         name: install endorlabs client
