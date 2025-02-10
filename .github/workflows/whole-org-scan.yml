@@ -36,5 +36,5 @@ jobs:
     with:
       git-url: ${{ matrix.git-url }}
       namespace: example
-    secrets:
-      endorlabs-api-auth: ${{ secrets.ENDORLABS_API_AUTH }}
+    # secrets:
+    #   endorlabs-api-auth: ${{ secrets.ENDORLABS_API_AUTH }}
