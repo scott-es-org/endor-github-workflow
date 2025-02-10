@@ -9,7 +9,7 @@ jobs:
   # TODO org-sync pattern
 
   setup:
-    uses: endorlabs/endor-github-workflow/.github/workflows/find-unscanned.yml@v0
+    uses: ./.github/workflows/find-unscanned.yml
     permissions:
       id-token: write
     with:
@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       max-parallel: ${{ needs.setup.outputs.job-count }}
       matrix: ${{ fromJson(needs.setup.outputs.matrix-json) }}
-    uses: endorlabs/endor-github-workflow/.github/workflows/scan-with-endorlabs.yml@v0
+    uses: ./.github/workflows/scan-with-endorlabs.yml
     permissions:
       id-token: write      # allows authentication to Endor Labs using Actions OIDC JWT Token
       pull-requests: write # allows scanner to leave a pull request comment, if enabled
