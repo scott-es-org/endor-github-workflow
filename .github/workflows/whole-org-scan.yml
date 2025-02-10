@@ -13,9 +13,9 @@ jobs:
     permissions:
       id-token: write
     with:
-      namespace: ${{ env.ENDOR_NAMESPACE }}
+      namespace: ${{ vars.ENDOR_NAMESPACE }}
       # Change below to set number of results; this should match your max-parallel
-      result-limit: ${{ env.MAX_REPOS }}
+      result-limit: ${{ vars.MAX_REPOS }}
     # uncomment below to use API auth instead of Actions OIDC; set secret to key and secret in the form key_id:key_secret
     # secrets: 
     #   endorlabs-api-auth: ${{ secrets.ENDORLABS_API_AUTH }}
@@ -35,6 +35,6 @@ jobs:
       contents: read       # allows this job to clone org repos
     with:
       git-url: ${{ matrix.git-url }}
-      namespace: ${{ env.ENDOR_NAMESPACE }}
+      namespace: ${{ vars.ENDOR_NAMESPACE }}
     # secrets:
     #   endorlabs-api-auth: ${{ secrets.ENDORLABS_API_AUTH }}
