@@ -151,3 +151,4 @@ jobs:
           echo "matrix-json=$OUTPUT" >> $GITHUB_OUTPUT
           echo "GITHUB_OUTPUT = ${GITHUB_OUTPUT}"
           echo "job-count=$(jq -r '.git_url|length' <<< ${OUTPUT} )"
+          echo "job-count=$(jq -r '.git_url|length' <<< ${OUTPUT} )" >> $GITHUB_ENV
