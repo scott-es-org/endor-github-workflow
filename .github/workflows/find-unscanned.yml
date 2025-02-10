@@ -140,6 +140,7 @@ jobs:
               break; fi
           done
           OUTPUT+="]}"
+          echo "OUTPUT = ${OUTPUT}"
           echo "::notice Providing $COUNTER repos for matrix"
           echo "matrix-json=$OUTPUT" >> $GITHUB_OUTPUT
           echo "GITHUB_OUTPUT = ${GITHUB_OUTPUT}"
