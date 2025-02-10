@@ -92,7 +92,7 @@ jobs:
         name: Create projects for unseen repos in this GitHub org
         if: inputs.do-orgsync == true
         continue-on-error: true
-        run: "${ENDOR_HOME}/endorctl sync-org --name ${{ github.repository_owner }}"
+        run: "${ENDOR_HOME}/endorctl sync-org --name ${{ github.repository_owner }} --log-level=debug --verbose"
 
       - id: enumerate-to-scan
         name: find repos that haven't had a default branch monitor scan in ${{ inputs.hours }} hours
