@@ -107,7 +107,7 @@ jobs:
           "${ENDOR_HOME}/endorctl" api list -r ScanResult --filter='meta.parent_kind==Project and spec.exit_code==ENDORCTL_RC_SUCCESS and spec.environment.config.RunBySystem==false and spec.environment.config.CIRunUUID==""' --field-mask context,meta,uuid --list-all > "${ENDOR_HOME}/scans.json"
           >&2 echo "Getting Projects"
           "${ENDOR_HOME}/endorctl" api list -r Project  --filter='processing_status.scan_state==SCAN_STATE_IDLE' --field-mask meta,spec.git.http_clone_url,uuid --list-all > "${ENDOR_HOME}/projects.json"
-
+          ls -lrta ${ENDOR_HOME}
           FS=$'\n'
           GIT_URLS=()
           for PROJ_UUID in $(jq -r '.list.objects[]|.uuid' "${ENDOR_HOME}/projects.json" | sort -u)
