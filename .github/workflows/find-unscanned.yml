@@ -129,17 +129,17 @@ jobs:
               fi
           done
 
-          COUNTER=1
+          COUNTER=0
           NUM_ELEMENTS=${#GIT_URLS[@]}
-          OUTPUT="{ \"git-url\": ["
+          OUTPUT="{ \"git_url\": ["
           for URL in ${GIT_URLS[@]}
           do
+              COUNTER=$((COUNTER+1))
               if [[ $COUNTER -lt $NUM_ELEMENTS ]]; then
                 OUTPUT+="  \"$URL\","
               else
                 OUTPUT+="  \"$URL\""
               fi
-              COUNTER=$((COUNTER+1))
               if [[ $COUNTER -gt $MAX_REPOS ]]; then
                   >&2 echo "::warning Stopping because we met the configured maximum of $MAX_REPOS repos"
               break; fi
@@ -149,4 +149,4 @@ jobs:
           echo "::notice Providing $COUNTER repos for matrix"
           echo "matrix-json=$OUTPUT" >> $GITHUB_OUTPUT
           echo "GITHUB_OUTPUT = ${GITHUB_OUTPUT}"
-          echo "job-count=$(jq -r '.git-url[]|length' <<< ${OUTPUT} )"
+          echo "job-count=$(jq -r '.git_url[]|length' <<< ${OUTPUT} )"
