@@ -149,4 +149,4 @@ jobs:
           echo "::notice Providing $COUNTER repos for matrix"
           echo "matrix-json=$OUTPUT" >> $GITHUB_OUTPUT
           echo "GITHUB_OUTPUT = ${GITHUB_OUTPUT}"
-          echo "job-count=$(jq -r '.git_url[]|length' <<< ${OUTPUT} )"
+          echo "job-count=$(jq -r '.git_url|length' <<< ${OUTPUT} )"
