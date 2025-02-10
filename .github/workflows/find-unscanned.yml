@@ -137,7 +137,7 @@ jobs:
               if [[ $COUNTER -lt $NUM_ELEMENTS ]]; then
                 OUTPUT+="  \"$URL\","
               else
-                OUTPUT+="  \"$URL"
+                OUTPUT+="  \"$URL""
               COUNTER=$((COUNTER+1))
               if [[ $COUNTER -gt $MAX_REPOS ]]; then
                   >&2 echo "::warning Stopping because we met the configured maximum of $MAX_REPOS repos"
