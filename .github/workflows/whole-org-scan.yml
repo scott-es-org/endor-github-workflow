@@ -13,9 +13,9 @@ jobs:
     permissions:
       id-token: write
     with:
-      namespace: ${{ vars.ENDOR_NAMESPACE }}
+      namespace: scott-learn.sync-org
       # Change below to set number of results; this should match your max-parallel
-      result-limit: ${{ vars.MAX_REPOS }}
+      result-limit: 25
     # uncomment below to use API auth instead of Actions OIDC; set secret to key and secret in the form key_id:key_secret
     # secrets: 
     #   endorlabs-api-auth: ${{ secrets.ENDORLABS_API_AUTH }}
@@ -35,6 +35,6 @@ jobs:
       contents: read       # allows this job to clone org repos
     with:
       git-url: ${{ matrix.git-url }}
-      namespace: ${{ vars.ENDOR_NAMESPACE }}
+      namespace: scott-learn.sync-org
     # secrets:
     #   endorlabs-api-auth: ${{ secrets.ENDORLABS_API_AUTH }}
