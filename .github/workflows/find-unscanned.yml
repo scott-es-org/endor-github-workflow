@@ -54,7 +54,8 @@ jobs:
       ENDOR_GITHUB_ACTION_TOKEN_ENABLE: "true"
       ENDOR_SCAN_SUMMARY_OUTPUT_TYPE: "json"
       MAX_REPOS: ${{ inputs.result-limit }}
-      GH_TOKEN: ${{ github.token }}
+      # GH_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
     outputs:
       matrix-json: ${{ steps.enumerate-to-scan.outputs.matrix-json }}
       job-count: ${{ steps.enumerate-to-scan.outputs.job-count}}
