@@ -13,6 +13,7 @@ jobs:
     permissions:
       id-token: write
     with:
+      do-orgsync: true
       namespace: scott-learn.sync-org
       # Change below to set number of results; this should match your max-parallel
       result-limit: 25
